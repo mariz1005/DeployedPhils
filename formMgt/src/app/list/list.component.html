@@ -1,0 +1,27 @@
+<app-form (onAdd)="addUser($event)" (onUpdate)="updateUser($event)" [formData]="users"></app-form>
+
+<table class="table table-striped thead-light table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users; index as i">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <div class="button-row d-flex">
+                <button type="button" class="btn btn-success" style="margin-right: 10px;" [routerLink]="[user.id]">View</button>
+                <button type="button" class="btn btn-warning"style="margin-right: 10px;"(click)="editUser(user, user.id)">Edit</button>
+                <button type="button" class="btn btn-danger" style="margin-right: 10px;" (click)="removeUser(user.id)">Delete</button>
+            </div>
+            
+        </tr>
+    </tbody>
+</table>

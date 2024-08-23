@@ -1,0 +1,52 @@
+<div class="container-fluid">
+
+    <div class="container text-center my-4">
+      <h5>SIGN UP TO OUR NEWSLETTER</h5>
+      <form class="row justify-content-center" [formGroup]="signUpForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="Full name" formControlName="fullName">
+          <div *ngIf="signUpForm.controls['fullName'].invalid && (signUpForm.controls['fullName'].dirty || signUpForm.controls['fullName'].touched)" class="alert-danger">
+            Full name is required
+          </div>
+        </div>
+        <div class="col-md-4">
+          <input type="email" class="form-control" placeholder="Email address" formControlName="email">
+          <div *ngIf="signUpForm.controls['email'].invalid && (signUpForm.controls['email'].dirty || signUpForm.controls['email'].touched)" class="alert-danger">
+            Full name is required
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary" [disabled]=" signUpForm.pristine || signUpForm.invalid">Submit</button>
+        </div>
+      </form>
+    </div>
+  
+
+    <footer class="bg-dark text-light py-4">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <a href="#" class="text-light mx-3">Home</a>
+            <a href="#" class="text-light mx-3">Our Services</a>
+            <a href="#" class="text-light mx-3">About Us</a>
+            <a href="#" class="text-light mx-3">Testimonials</a>
+            <a href="#" class="text-light mx-3">Blog</a>
+            <a href="#" class="text-light mx-3">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  
+   
+    <footer class="bg-dark text-light">
+      <div class="container text-center py-3">
+        <div class="container mb-3">
+          <img class="main" src="assets/logo.png" alt="" width="132" height="34" >
+        </div>
+        <p>0800 700 699</p>
+        <p>{{email}}</p>
+        <p class="mt-3">Copyright © 2017 Haven Advisers Limited. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+  
